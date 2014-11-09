@@ -1,0 +1,28 @@
+<h1>Index</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Snack</th>
+      <th>Calories</th>
+      <th>Activity</th>
+      <th>How Many</th>
+      <th>Unit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pairs.each do |pair| %>
+      <tr>
+        <td><%= pair[:snack] %></td>
+        <td><%= pair[:calories] %></td>
+        <td><%= pair[:activity] %></td>
+        <td><%= pair[:quantity] %></td>
+        <td><%= pair[:unit] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br> <%= link_to 'New Activity', new_activity_path %>
+<br> <%= link_to 'New Snack', new_snack_path %>

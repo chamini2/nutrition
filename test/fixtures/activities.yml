@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  calories: 1.5
+  unit: MyString
+
+two:
+  description: MyString
+  calories: 1.5
+  unit: MyString

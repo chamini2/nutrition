@@ -11,14 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141109004752) do
+ActiveRecord::Schema.define(version: 20141109012351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "activities", force: true do |t|
+    t.string   "description"
+    t.float    "calories"
+    t.string   "unit"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "snacks", force: true do |t|
     t.string   "name"
-    t.float    "calories"
+    t.integer  "calories"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
