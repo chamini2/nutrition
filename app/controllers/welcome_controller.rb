@@ -9,9 +9,9 @@ class WelcomeController < ApplicationController
       activity = activities[rand(activities_length)]
       pair = {snack: snack.name,
               calories: snack.calories,
-              activity: activity.description,
-              quantity: (snack.calories / activity.calories).round,
-              unit: activity.unit
+              activity: activity.description.capitalize,
+              quantity: (activity.calories * snack.calories).round,
+              unit: activity.unit.downcase
              }
       @pairs.push(pair)
     end
