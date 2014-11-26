@@ -16,7 +16,7 @@
             <td><%= activity.calories %></td>
             <td><%= activity.unit %></td>
             <% if not activity.approved %>
-              <td><%= link_to 'Aprovar', '/activities/' + activity.id.to_s + '/approve_it' %></td>
+              <td><%= link_to 'Aprobar', '/activities/' + activity.id.to_s + '/approve_it' %></td>
             <% else %>
               <td></td>
             <% end %>
@@ -42,7 +42,7 @@
             <td><%= snack.name %></td>
             <td><%= snack.calories %></td>
             <% if not snack.approved %>
-              <td><%= link_to 'Aprovar', '/snacks/' + snack.id.to_s + '/approve_it' %></td>
+              <td><%= link_to 'Aprobar', '/snacks/' + snack.id.to_s + '/approve_it' %></td>
             <% else %>
               <td></td>
             <% end %>
