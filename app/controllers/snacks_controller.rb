@@ -1,5 +1,6 @@
 class SnacksController < ApplicationController
   before_action :set_snack, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -9,15 +10,19 @@ class SnacksController < ApplicationController
   end
 
   def show
-    activities = Activity.approved
+    if @snack.approved then
+      activities = Activity.approved(true)
 
-    @tuples = []
-    activities.each do |activity|
-      tuple = { activity: activity.description.capitalize,
-                quantity: (activity.calories * @snack.calories).round,
-                unit: activity.unit.downcase
-              }
-      @tuples.push(tuple)
+      @tuples = []
+      activities.each do |activity|
+        tuple = { activity: activity.description.capitalize,
+                  quantity: (activity.calories * @snack.calories).round,
+                  unit: activity.unit.downcase
+                }
+        @tuples.push(tuple)
+      end
+    else
+      redirect_to(root_url)
     end
   end
 
@@ -31,18 +36,26 @@ class SnacksController < ApplicationController
 
   def create
     @snack = Snack.new(snack_params)
+    @snack.name = @snack.name.capitalize
     @snack.save
-    respond_with(@snack)
+    redirect_to root_url, :notice => '¡Gracias por tu aporte!, éste será validado y aprobado por nuestros administradores'
   end
 
   def update
     @snack.update(snack_params)
-    respond_with(@snack)
+    redirect_to(entries_path)
   end
 
   def destroy
     @snack.destroy
-    respond_with(@snack)
+    redirect_to(entries_path)
+  end
+
+  def approve_it
+    @snack = Snack.find(params[:snack_id])
+    @snack.approved = true
+    @snack.save
+    redirect_to(entries_path)
   end
 
   private

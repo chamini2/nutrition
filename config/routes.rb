@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
   devise_for :admins
-  resources :snacks
-
-  resources :activities
-
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   root 'welcome#index'
 
-  resources :snacks, except: [:index]
-  resources :activities, only: [:create, :destroy]
+  get 'entries', to: 'welcome#approve'
+
+  resources :snacks, except: [:index] do
+    get 'approve_it', to: 'snacks#approve_it'
+  end
+
+  resources :activities, only: [:create, :new, :destroy] do
+    get 'approve_it', to: 'activities#approve_it'
+  end
 
 
   # You can have the root of your site routed with "root"

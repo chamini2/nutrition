@@ -2,14 +2,16 @@
 
 <div class="row">
   <p class="col-md-5">
-    <strong>Name:</strong>
-    <%= @snack.name %>
+    <h2 class="text-center">
+        <%= @snack.name %>
+    </h2>
   </p>
 </div>
 <div class="row">
   <p class="col-md-5">
-    <strong>Calories:</strong>
-    <%= @snack.calories %>
+    <h2 class="text-center">
+        <%= @snack.calories %> Calorías
+    </h2>
   </p>
 </div>
 
@@ -27,5 +29,3 @@
         <% end %>
     </tbody>
 </table>
-
-<%= link_to 'Back', root_path %>

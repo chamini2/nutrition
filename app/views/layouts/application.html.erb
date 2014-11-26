@@ -10,11 +10,10 @@
 
 <nav id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-        <div class="col-md-1"> </div>
+        <div class="col-md-1"></div>
         <div class="col-md-2">
             <br> <%= link_to 'Inicio', root_url %>
         </div>
-        <div class="col-md-2"></div>
         <div class="col-md-3">
             <br> <%= link_to 'Nueva actividad', new_activity_path %>
         </div>
@@ -28,6 +27,13 @@
             <% else %>
                 <%= link_to "Sign in", new_user_session_path %>
             <% end %>
+        </div>
+        <div class="col-md-2">
+          <% if (@not_approved > 0) && user_signed_in? %>
+            <br> <b><%= link_to 'Entradas', entries_path %>*</b>
+          <% else %>
+            <br> <%= link_to 'Entradas', entries_path %>
+          <% end %>
         </div>
     </div>
 </nav>

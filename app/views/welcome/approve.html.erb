@@ -1,0 +1,54 @@
+<table class="table table-striped">
+    <h3>Actividades</h3>
+    <thead>
+        <tr>
+          <th>Descripción</th>
+          <th>Calorías</th>
+          <th>Unidades</th>
+          <th colspan="2"></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @activities.each do |activity| %>
+          <tr>
+            <td><%= activity.description %></td>
+            <td><%= activity.calories %></td>
+            <td><%= activity.unit %></td>
+            <% if not activity.approved %>
+              <td><%= link_to 'Aprovar', '/activities/' + activity.id.to_s + '/approve_it' %></td>
+            <% else %>
+              <td></td>
+            <% end %>
+            <td><%= link_to 'Eliminar', activity, method: :delete, data: { confirm: '¿Seguro?' } %></td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <h3>Chucherías</h3>
+    <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Calorías</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @snacks.each do |snack| %>
+          <tr>
+            <td><%= snack.name %></td>
+            <td><%= snack.calories %></td>
+            <% if not snack.approved %>
+              <td><%= link_to 'Aprovar', '/snacks/' + snack.id.to_s + '/approve_it' %></td>
+            <% else %>
+              <td></td>
+            <% end %>
+            <td><%= link_to 'Eliminar', snack, method: :delete, data: { confirm: '¿Seguro?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    <thead></thead>
+</table>

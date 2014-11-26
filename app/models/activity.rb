@@ -3,7 +3,7 @@ class Activity < ActiveRecord::Base
   validates :calories, presence: true
   after_initialize :default_attributes, :if => :new_record?
 
-  scope :approved, -> { where approved: true }
+  scope :approved, -> (b) { where approved: b }
 
   private
     def default_attributes

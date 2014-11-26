@@ -1,7 +1,9 @@
 class WelcomeController < ApplicationController
+  before_action :authenticate_user!, only: [:approve]
+
   def index
-    snacks = Snack.approved.order(:name)
-    activities = Activity.approved
+    snacks = Snack.approved(true).order(:name)
+    activities = Activity.approved(true)
     activities_length = activities.length
 
     @tuples = []
@@ -17,4 +19,10 @@ class WelcomeController < ApplicationController
       @tuples.push(tuple)
     end
   end
+
+  def approve
+    @activities = Activity.order(:approved)
+    @snacks = Snack.order(:approved)
+  end
+
 end

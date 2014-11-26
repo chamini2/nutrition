@@ -1,5 +1,6 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -9,7 +10,7 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    respond_with(@activity)
+    redirect_to(root_url)
   end
 
   def new
@@ -22,18 +23,26 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
+    @activity.name = @activity.name.capitalize
     @activity.save
-    respond_with(@activity)
+    redirect_to root_url, :notice => '¡Gracias por tu aporte!, éste será validado y aprobado por nuestros administradores'
   end
 
   def update
     @activity.update(activity_params)
-    respond_with(@activity)
+    redirect_to(entries_path)
   end
 
   def destroy
     @activity.destroy
-    respond_with(@activity)
+    redirect_to(entries_path)
+  end
+
+  def approve_it
+    @activity = Activity.find(params[:activity_id])
+    @activity.approved = true
+    @activity.save
+    redirect_to(entries_path)
   end
 
   private
