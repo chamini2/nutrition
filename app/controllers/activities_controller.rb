@@ -23,7 +23,7 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(activity_params)
-    @activity.name = @activity.name.capitalize
+    @activity.description = @activity.description.capitalize
     @activity.save
     redirect_to root_url, :notice => '¡Gracias por tu aporte!, éste será validado y aprobado por nuestros administradores'
   end
