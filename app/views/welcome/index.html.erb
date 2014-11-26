@@ -1,20 +1,22 @@
-<h1>Index</h1>
+<div class="row">
+  <h1 class="col-md-12">Index</h1>
+</div>
 
-<table>
+<table class="table table-striped table-hover">
   <thead>
-    <tr>
-      <th>Snack</th>
-      <th>Calories</th>
-      <th>Activity</th>
+    <tr class="row">
+      <th class="col-md-3">Snack</th>
+      <th class="col-md-3">Calories</th>
+      <th class="col-md-3">Activity</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @pairs.each do |pair| %>
-      <tr>
-        <td><%= pair[:snack] %></td>
-        <td><%= pair[:calories] %></td>
-        <td><%= pair[:activity] %> <%= pair[:quantity] %> <%= pair[:unit] %></td>
+    <% @tuples.each do |tuple| %>
+      <tr class="row">
+        <td class="col-md-3"><%= link_to tuple[:name], tuple[:snack] %></td>
+        <td class="col-md-3"><%= tuple[:calories] %></td>
+        <td class="col-md-3"><%= tuple[:activity] %> <%= tuple[:quantity] %> <%= tuple[:unit] %></td>
       </tr>
     <% end %>
   </tbody>

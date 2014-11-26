@@ -4,16 +4,17 @@ class WelcomeController < ApplicationController
     activities = Activity.all
     activities_length = activities.length
 
-    @pairs = []
+    @tuples = []
     snacks.each do |snack|
       activity = activities[rand(activities_length)]
-      pair = {snack: snack.name,
-              calories: snack.calories,
-              activity: activity.description.capitalize,
-              quantity: (activity.calories * snack.calories).round,
-              unit: activity.unit.downcase
-             }
-      @pairs.push(pair)
+      tuple = { snack: snack,
+                name: snack.name,
+                calories: snack.calories,
+                activity: activity.description.capitalize,
+                quantity: (activity.calories * snack.calories).round,
+                unit: activity.unit.downcase,
+              }
+      @tuples.push(tuple)
     end
   end
 end
