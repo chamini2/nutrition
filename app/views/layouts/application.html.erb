@@ -29,10 +29,12 @@
             <% end %>
         </div>
         <div class="col-md-2">
-          <% if (@not_approved > 0) && user_signed_in? %>
-            <br> <b><%= link_to 'Entradas', entries_path %>*</b>
-          <% else %>
-            <br> <%= link_to 'Entradas', entries_path %>
+          <% if user_signed_in? %>
+            <% if @not_approved > 0 %>
+              <br> <b><%= link_to 'Entradas', entries_path %>*</b>
+            <% else %>
+              <br> <%= link_to 'Entradas', entries_path %>
+            <% end %>
           <% end %>
         </div>
     </div>
