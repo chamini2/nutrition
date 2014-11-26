@@ -12,14 +12,21 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    Nombre: <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :calories %><br>
-    <%= f.number_field :calories %>
+    Calorías: <%= f.number_field :calories %>
   </div>
-  <div class="actions">
+
+  <div class="spacer">
+    <h2>Ejemplo</h2>
+    Nombre: <b>Snickers</b><br>
+    Calorías: <b>181</b><br>
+  </div>
+
+  <div class="hidden"><%= f.check_box :approved %></div>
+
+  <div class="actions spacer">
     <%= f.submit %>
   </div>
 <% end %>

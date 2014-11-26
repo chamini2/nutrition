@@ -9,7 +9,7 @@ class SnacksController < ApplicationController
   end
 
   def show
-    activities = Activity.all
+    activities = Activity.approved
 
     @tuples = []
     activities.each do |activity|

@@ -16,6 +16,18 @@
 <% end %>
 
 <div class="container-fluid">
+    <div class="header">
+        <div class="col-md-4">
+            Home
+        </div>
+        <div class="col-md-2"> </div>
+        <div class="col-md-3">
+            <br> <%= link_to 'Nueva actividad', new_activity_path %>
+        </div>
+        <div class="col-md-3">
+            <br> <%= link_to 'Nueva chuchería', new_snack_path %>
+        </div>
+    </div>
     <%= yield %>
 </div>
 

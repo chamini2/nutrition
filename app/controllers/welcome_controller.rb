@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def index
-    snacks = Snack.order(:name)
-    activities = Activity.all
+    snacks = Snack.approved.order(:name)
+    activities = Activity.approved
     activities_length = activities.length
 
     @tuples = []
@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
                 name: snack.name,
                 calories: snack.calories,
                 activity: activity.description.capitalize,
-                quantity: (activity.calories * snack.calories).round,
+                quantity: (snack.calories / activity.calories).round,
                 unit: activity.unit.downcase,
               }
       @tuples.push(tuple)

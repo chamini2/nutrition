@@ -14,3 +14,7 @@
  *= require_self
  *= require bootstrap
  */
+
+.spacer {
+    margin-top: 20px;
+}
