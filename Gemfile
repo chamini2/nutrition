@@ -4,6 +4,9 @@ source 'https://rubygems.org'
 
 gem 'devise'
 
+# Heroku
+gem 'rails_12factor', group: :production
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use pg as the database for Active Record
