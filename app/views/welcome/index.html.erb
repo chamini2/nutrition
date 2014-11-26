@@ -3,23 +3,23 @@
 </div>
 
 <table class="table table-striped table-hover">
-  <thead>
-    <tr class="row">
-      <th class="col-md-3">Snack</th>
-      <th class="col-md-3">Calories</th>
-      <th class="col-md-3">Activity</th>
-    </tr>
-  </thead>
+    <thead>
+        <tr class="row">
+            <th class="col-md-3">Snack</th>
+            <th class="col-md-3">Calories</th>
+            <th class="col-md-3">Activity</th>
+        </tr>
+    </thead>
 
-  <tbody>
-    <% @tuples.each do |tuple| %>
-      <tr class="row">
-        <td class="col-md-3"><%= link_to tuple[:name], tuple[:snack] %></td>
-        <td class="col-md-3"><%= tuple[:calories] %></td>
-        <td class="col-md-3"><%= tuple[:activity] %> <%= tuple[:quantity] %> <%= tuple[:unit] %></td>
-      </tr>
-    <% end %>
-  </tbody>
+    <tbody>
+        <% @tuples.each do |tuple| %>
+            <tr class="row">
+                <td class="col-md-3"><%= link_to tuple[:name], tuple[:snack] %></td>
+                <td class="col-md-3"><%= tuple[:calories] %></td>
+                <td class="col-md-3"><%= tuple[:activity] %> <%= tuple[:quantity] %> <%= tuple[:unit] %></td>
+            </tr>
+        <% end %>
+    </tbody>
 </table>
 
 <br> <%= link_to 'New Activity', new_activity_path %>

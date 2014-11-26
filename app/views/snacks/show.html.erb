@@ -10,5 +10,20 @@
   <%= @snack.calories %>
 </p>
 
+<table class="table">
+    <thead>
+        <tr class="row">
+            <th class="col-md-3">Equivalente a</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @tuples.each do |tuple| %>
+            <tr class="row">
+                <td class="col-md-3"><%= tuple[:activity] %> <%= tuple[:quantity] %> <%= tuple[:unit] %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+
 <%= link_to 'Edit', edit_snack_path(@snack) %> |
 <%= link_to 'Back', snacks_path %>

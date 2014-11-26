@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
+  resources :snacks, except: [:index]
+  resources :activities, only: [:create, :destroy]
+
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

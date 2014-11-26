@@ -9,7 +9,16 @@ class SnacksController < ApplicationController
   end
 
   def show
-    respond_with(@snack)
+    activities = Activity.all
+
+    @tuples = []
+    activities.each do |activity|
+      tuple = { activity: activity.description.capitalize,
+                quantity: (activity.calories * @snack.calories).round,
+                unit: activity.unit.downcase
+              }
+      @tuples.push(tuple)
+    end
   end
 
   def new
