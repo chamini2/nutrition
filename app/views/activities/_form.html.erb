@@ -14,14 +14,14 @@
     <div class="col-md-12 spacer">
       Descripción: <%= f.text_field :description %>, una de éstas (unidades) <%= f.text_field :unit %> quema <%= f.text_field :calories %> calorías
     </div>
-    <div class=""><%= f.check_box :approved %></div>
   </div>
+
+  <div class="hidden"><%= f.check_box :approved %></div>
 
   <div class="spacer">
     <h2>Ejemplo</h2>
     Descripción: <b>Nadar</b>, una de éstas (unidades) <b>minutos</b> quema <b>12.5</b> calorías<br>
   </div>
-
 
   <div class="actions spacer">
     <%= f.submit %>
