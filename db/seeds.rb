@@ -37,12 +37,18 @@ snacks.each do |name, calories|
 end
 
 activities = [
-    ["nadar",       12.5, "minutos"] ,
-    ["caminar",     3.57, "minutos"] ,
-    ["abdominales", 9.8,  "minutos"] ,
-    ["bailar",      5.52, "minutos"] ,
-    ["bicicleta",   8.33, "minutos"]
+    ["Caminata"                          , 170, "hora"] ,
+    ["Trotar"                            , 520, "hora"] ,
+    ["Ciclismo al aire libre"            , 260, "hora"] ,
+    ["Baile intenso"                     , 325, "hora"] ,
+    ["Bicicleta fija (Esfuerzo ligero)"  , 195, "hora"] ,
+    ["Bicicleta fija (Esfuerzo moderado)", 450, "hora"] ,
+    ["Bicicleta fija (Esfuerzo alto)"    , 680, "hora"] ,
+    ["Basquetbol"                        , 390, "hora"] ,
+    ["Futbol"                            , 470, "hora"] ,
+    ["Natación"                          , 390, "hora"]
 ]
+
 
 activities.each do |description, calories, unit|
   Activity.create( description: description, calories: calories, unit: unit, approved: true )
