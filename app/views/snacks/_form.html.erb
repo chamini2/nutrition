@@ -18,13 +18,13 @@
     Calorías: <%= f.number_field :calories %>
   </div>
 
+  <div class="hidden"><%= f.check_box :approved %></div>
+
   <div class="spacer">
     <h2>Ejemplo</h2>
     Nombre: <b>Snickers</b><br>
     Calorías: <b>181</b><br>
   </div>
-
-  <div class="hidden"><%= f.check_box :approved %></div>
 
   <div class="actions spacer">
     <%= f.submit %>

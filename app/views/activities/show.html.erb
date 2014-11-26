@@ -1,19 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @activity.description %>
-</p>
+<div class="row">
+    <p class="col-md-3">
+      <strong>Description:</strong>
+      <%= @activity.description %>
+    </p>
+</div>
+<div class="row">
+    <p class="col-md-3">
+      <strong>Calories:</strong>
+      <%= @activity.calories %>
+    </p>
+</div>
+<div class="row">
+    <p class="col-md-3">
+      <strong>Unit:</strong>
+      <%= @activity.unit %>
+    </p>
+</div>
 
-<p>
-  <strong>Calories:</strong>
-  <%= @activity.calories %>
-</p>
-
-<p>
-  <strong>Unit:</strong>
-  <%= @activity.unit %>
-</p>
-
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
+<%= link_to 'Back', root_url %>

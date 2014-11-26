@@ -8,6 +8,32 @@
 </head>
 <body>
 
+<nav id="header" class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="col-md-1"> </div>
+        <div class="col-md-2">
+            <br> <%= link_to 'Inicio', root_url %>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-3">
+            <br> <%= link_to 'Nueva actividad', new_activity_path %>
+        </div>
+        <div class="col-md-3">
+            <br> <%= link_to 'Nueva chuchería', new_snack_path %>
+        </div>
+        <div class="col-md-1">
+            <br>
+            <% if user_signed_in? %>
+                <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+            <% else %>
+                <%= link_to "Sign in", new_user_session_path %>
+            <% end %>
+        </div>
+    </div>
+</nav>
+
+<div id="under-header"></div>
+
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
@@ -16,18 +42,6 @@
 <% end %>
 
 <div class="container-fluid">
-    <div class="header">
-        <div class="col-md-4">
-            <br> <%= link_to 'Inicio', root_url %>
-        </div>
-        <div class="col-md-2"> </div>
-        <div class="col-md-3">
-            <br> <%= link_to 'Nueva actividad', new_activity_path %>
-        </div>
-        <div class="col-md-3">
-            <br> <%= link_to 'Nueva chuchería', new_snack_path %>
-        </div>
-    </div>
     <%= yield %>
 </div>
 

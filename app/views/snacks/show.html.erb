@@ -1,14 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @snack.name %>
-</p>
-
-<p>
-  <strong>Calories:</strong>
-  <%= @snack.calories %>
-</p>
+<div class="row">
+  <p class="col-md-5">
+    <strong>Name:</strong>
+    <%= @snack.name %>
+  </p>
+</div>
+<div class="row">
+  <p class="col-md-5">
+    <strong>Calories:</strong>
+    <%= @snack.calories %>
+  </p>
+</div>
 
 <table class="table">
     <thead>
@@ -25,5 +28,4 @@
     </tbody>
 </table>
 
-<%= link_to 'Edit', edit_snack_path(@snack) %> |
-<%= link_to 'Back', snacks_path %>
+<%= link_to 'Back', root_path %>

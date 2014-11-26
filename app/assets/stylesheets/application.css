@@ -16,5 +16,13 @@
  */
 
 .spacer {
-    margin-top: 20px;
+    margin-top: 40px;
+}
+
+#header {
+    height: 55px;
+}
+
+#under-header {
+    min-height: 55px;
 }
