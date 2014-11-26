@@ -16,7 +16,7 @@ class SnacksController < ApplicationController
       @tuples = []
       activities.each do |activity|
         tuple = { activity: activity.description.capitalize,
-                  quantity: (activity.calories * @snack.calories).round,
+                  quantity: (@snack.calories / activity.calories).round,
                   unit: activity.unit.downcase
                 }
         @tuples.push(tuple)

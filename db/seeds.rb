@@ -49,7 +49,6 @@ activities = [
     ["Natación"                          , 6.5  , "minutos"]
 ]
 
-
 activities.each do |description, calories, unit|
   Activity.create( description: description, calories: calories, unit: unit, approved: true )
 end
