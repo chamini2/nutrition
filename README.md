@@ -1,4 +1,4 @@
 nutrition
 =========
 
-Nutritional information Rails app
+Small nutritional information Rails app I did for a course.
